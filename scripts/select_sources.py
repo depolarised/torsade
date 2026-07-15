@@ -15,7 +15,7 @@ import argparse
 import csv
 from pathlib import Path
 
-from torsade.selection import quality_flags, select_ptbxl
+from artefaux.selection import quality_flags, select_ptbxl
 
 SEED = 20260713
 N_CLEAN = 30 + 22  # real-noise parents + engineering parents

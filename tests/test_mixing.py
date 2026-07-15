@@ -7,7 +7,7 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from torsade.mixing import measured_snr_db, mix_lead
+from artefaux.mixing import measured_snr_db, mix_lead
 
 
 @pytest.fixture

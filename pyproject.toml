@@ -3,9 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "torsade"
+name = "artefaux"
 version = "1.0.0"
-description = "Torsade — a deterministic generator and reproducible corpus definition for ECG noise & lead-failure stress testing."
+description = "Artefaux — a deterministic generator and reproducible corpus definition for ECG noise & lead-failure stress testing."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "GPL-3.0-or-later"
@@ -38,15 +38,15 @@ figures = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/depolarised/torsade"
-Repository = "https://github.com/depolarised/torsade"
+Homepage = "https://github.com/depolarised/artefaux"
+Repository = "https://github.com/depolarised/artefaux"
 
 [project.scripts]
-torsade-download = "torsade.cli:download_main"
-torsade-generate = "torsade.cli:generate_main"
+artefaux-download = "artefaux.cli:download_main"
+artefaux-generate = "artefaux.cli:generate_main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/torsade"]
+packages = ["src/artefaux"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Ioannis Valasakis <tungolcild@gmail.com>
-"""Build the Torsade v1 corpus report in the Glasgow ECG-AF report house style.
+"""Build the Artefaux v1 corpus report in the Glasgow ECG-AF report house style.
 
 Pandoc-markdown with YAML front-matter (booktabs / longtable), numbered sections,
 provenance line, right-aligned numeric tables. Every value is computed from the
-*committed* corpus definition (``torsade.corpus`` + ``recipes/source_ids/``) and the
+*committed* corpus definition (``artefaux.corpus`` + ``recipes/source_ids/``) and the
 recipe-authored labels, so no number in the report can drift from the source.
 
-    python scripts/reports/generate_corpus_report.py            # -> reports/torsade_v1_corpus_report.md
+    python scripts/reports/generate_corpus_report.py            # -> reports/artefaux_v1_corpus_report.md
     python scripts/reports/generate_corpus_report.py --pdf      # also render PDF via pandoc, if available
 """
 
@@ -20,11 +20,11 @@ import argparse
 import subprocess
 from pathlib import Path
 
-from torsade.build import resolve_source_ids
-from torsade.constants import SNR_LADDER_DB
-from torsade.corpus import build_corpus_specs
-from torsade.recipes import build_record
-from torsade.synthetic import synthetic_parent_signal
+from artefaux.build import resolve_source_ids
+from artefaux.constants import SNR_LADDER_DB
+from artefaux.corpus import build_corpus_specs
+from artefaux.recipes import build_record
+from artefaux.synthetic import synthetic_parent_signal
 
 MASTER_SEED = 20260713
 REPO = Path(__file__).resolve().parents[2]
@@ -227,7 +227,7 @@ def build_report() -> str:
     ladder = ", ".join(f"{d:+d}" for d in sorted(SNR_LADDER_DB))
 
     fm = f"""---
-title: "Torsade v1 — ECG Noise and Lead-Failure Stress-Test Corpus: Generation Report and Full Record Roster"
+title: "Artefaux v1 — ECG Noise and Lead-Failure Stress-Test Corpus: Generation Report and Full Record Roster"
 date: "2026-07-13"
 author: "Ioannis Valasakis"
 affiliation: "Electrocardiography Group, University of Glasgow"
@@ -242,25 +242,25 @@ header-includes:
   - \\AtBeginEnvironment{{longtable}}{{\\small}}
 ---
 
-# Torsade v1 — ECG Noise and Lead-Failure Stress-Test Corpus
+# Artefaux v1 — ECG Noise and Lead-Failure Stress-Test Corpus
 
 **Ioannis Valasakis**
 
 *Electrocardiography Group, University of Glasgow*
 
-**Date:** 2026-07-13 · **Repository:** <https://github.com/depolarised/torsade> (tag `v1.0.0`) ·
+**Date:** 2026-07-13 · **Repository:** <https://github.com/depolarised/artefaux> (tag `v1.0.0`) ·
 **Sources (every value below traces to these):** `recipes/corpus.yaml`, `recipes/source_ids/*.csv`,
-`manifest.json` (all committed), regenerated in-memory from `torsade.corpus` + `torsade.recipes`
+`manifest.json` (all committed), regenerated in-memory from `artefaux.corpus` + `artefaux.recipes`
 (`master_seed = {MASTER_SEED}`). Generator: `scripts/reports/generate_corpus_report.py`.
 
-> **Scope.** Torsade is a *stress-test set, not a clinically representative cohort.* It deliberately
+> **Scope.** Artefaux is a *stress-test set, not a clinically representative cohort.* It deliberately
 > over-samples failure; do not use it to estimate real-world prevalence or deployment accuracy.
 
 ---
 
 ## 1. Objectives
 
-Torsade is a deterministic generator and reproducible corpus **definition** for stress-testing ECG
+Artefaux is a deterministic generator and reproducible corpus **definition** for stress-testing ECG
 signal-quality gates (the internal `signalguard`) and noise detectors (`noiseguard`). It does **not**
 redistribute derived signals: it ships code, recipes, labels, manifest, and provenance so a user
 regenerates the corpus **bit-exactly** from their own open PhysioNet copies.
@@ -405,7 +405,7 @@ is computed from the committed corpus definition.*
 
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="generate_corpus_report", description=__doc__)
-    p.add_argument("--output", default=str(REPO / "reports" / "torsade_v1_corpus_report.md"))
+    p.add_argument("--output", default=str(REPO / "reports" / "artefaux_v1_corpus_report.md"))
     p.add_argument("--pdf", action="store_true", help="Also render a PDF via pandoc, if available.")
     args = p.parse_args(argv)
 

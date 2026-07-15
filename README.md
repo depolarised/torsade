@@ -1,17 +1,18 @@
-# Torsade
+# Artefaux
 
 **A deterministic generator and reproducible corpus definition for ECG noise & lead-failure stress testing.**
 
-*Torsade* — from *torsades de pointes*, French for "twisting of the points". A torsade is a twisted braid;
-this suite braids real recorded artefact into clean 12-lead ECGs and twists the electrode montage into
-failure, producing a richly-labelled corpus for stress-testing ECG signal-quality gates and noise detectors.
+*Artefaux* — a portmanteau of *artefact* and *faux* (French for "false"). The suite injects controlled,
+synthetic (*faux*) artefact — real recorded noise braided into clean 12-lead ECGs and engineered
+electrode/lead failures — producing a richly-labelled corpus for stress-testing ECG signal-quality
+gates and noise detectors.
 
 > **This is a stress-test set, not a clinically representative cohort.** It deliberately over-samples
 > failure. Do not use it to estimate real-world prevalence or detector accuracy in deployment.
 
 ## What this is
 
-Torsade v1 ships the **generation engine** and the **corpus definition** (recipes + manifest + labels +
+Artefaux v1 ships the **generation engine** and the **corpus definition** (recipes + manifest + labels +
 provenance) needed to regenerate a ~65–70 record stress corpus **bit-exactly** from open PhysioNet sources.
 It does **not** redistribute derived signals — you fetch the sources and regenerate locally:
 

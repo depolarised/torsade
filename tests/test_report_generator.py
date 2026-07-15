@@ -15,7 +15,7 @@ GEN_PATH = REPO / "scripts" / "reports" / "generate_corpus_report.py"
 
 
 def _load_generator():
-    spec = importlib.util.spec_from_file_location("torsade_report_generator", GEN_PATH)
+    spec = importlib.util.spec_from_file_location("artefaux_report_generator", GEN_PATH)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -33,7 +33,7 @@ gen_only = pytest.mark.skipif(
 def test_report_enumerates_all_67_records():
     gen = _load_generator()
     text = gen.build_report()
-    from torsade.corpus import build_corpus_specs
+    from artefaux.corpus import build_corpus_specs
 
     for spec in build_corpus_specs():
         # ids are wrapped with zero-width spaces for line-breaking; strip them before matching.

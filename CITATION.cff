@@ -1,14 +1,14 @@
 cff-version: 1.2.0
-title: "Torsade: A Deterministic ECG Noise and Lead-Failure Stress-Test Corpus"
+title: "Artefaux: A Deterministic ECG Noise and Lead-Failure Stress-Test Corpus"
 abstract: >-
   A richly-labelled, deterministically reproducible stress-test corpus and
   generation engine for validating ECG signal-quality gates and noise detectors.
-  Torsade mixes real recorded noise (MIT-BIH NSTDB) into clean 12-lead ECGs
+  Artefaux mixes real recorded noise (MIT-BIH NSTDB) into clean 12-lead ECGs
   (PTB-XL) and adds engineered electrode-domain and lead-failure corruptions to
   systematically exercise signal-processing robustness. It is a stress-test set,
   not a clinically representative cohort.
 message: >-
-  If you use Torsade, please cite it as below and additionally cite the source
+  If you use Artefaux, please cite it as below and additionally cite the source
   datasets (PTB-XL, PTB-XL+, MIT-BIH NSTDB, MACECGDB) as documented in
   ATTRIBUTION.md.
 type: software
@@ -20,8 +20,8 @@ authors:
     given-names: Ioannis
     email: tungolcild@gmail.com
     alias: depolarised
-repository-code: "https://github.com/depolarised/torsade"
-repository-artifact: "https://github.com/depolarised/torsade/releases/tag/v1.0.0"
+repository-code: "https://github.com/depolarised/artefaux"
+repository-artifact: "https://github.com/depolarised/artefaux/releases/tag/v1.0.0"
 keywords:
   - ECG
   - electrocardiography
@@ -93,7 +93,7 @@ references:
     url: "https://physionet.org/content/ptb-xl-plus/1.0.1/"
     notes: >-
       Augmented Uni-G/Glasgow feature and interpretation layer for PTB-XL. Cited and
-      version-pinned; not consumed by Torsade v1 (the glasgow_statements field is reserved
+      version-pinned; not consumed by Artefaux v1 (the glasgow_statements field is reserved
       and ships empty). PTB-XL quality flags come from PTB-XL itself, not this layer.
   - type: data
     title: "The MIT-BIH Noise Stress Test Database"

@@ -8,14 +8,14 @@ are each referenced to Wilson's Central Terminal (WCT), which is itself the mean
 of the three limb electrodes. A loose or noisy *electrode* therefore corrupts a
 predictable *set* of leads, not one arbitrary trace.
 
-Torsade models this exactly. Given a clean, Einthoven-consistent 12-lead record we
+Artefaux models this exactly. Given a clean, Einthoven-consistent 12-lead record we
 recover the electrode potentials (in the RA-as-reference gauge), add artefact to
 one or more electrodes, then rederive all twelve leads. This is the physically
 faithful way to simulate an acquired-but-degraded ECG.
 
 **Assumption — the WCT is not truly zero.** The classical WCT ``(RA+LA+LL)/3`` is
 an approximation; the real central-terminal potential varies through the cardiac
-cycle and with electrode placement. Torsade uses the classical definition and
+cycle and with electrode placement. Artefaux uses the classical definition and
 recomputes it after corruption, which is the standard modelling choice; downstream
 users should read this as an idealised electrode model, not a torso forward model.
 """
@@ -28,7 +28,7 @@ import numpy as np
 
 from .constants import CANONICAL_LEAD_ORDER, DERIVED_LIMB_LEADS, LEAD_INDEX
 
-# Electrode channel names Torsade can address for corruption.
+# Electrode channel names Artefaux can address for corruption.
 CHEST_ELECTRODES: tuple[str, ...] = ("C1", "C2", "C3", "C4", "C5", "C6")
 ELECTRODE_NAMES: tuple[str, ...] = ("RA", "LA", "LL", *CHEST_ELECTRODES)
 

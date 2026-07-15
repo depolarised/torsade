@@ -6,8 +6,8 @@ from __future__ import annotations
 
 import numpy as np
 
-from torsade.constants import LEAD_INDEX
-from torsade.engineering import (
+from artefaux.constants import LEAD_INDEX
+from artefaux.engineering import (
     build_constant_adc,
     build_digital_missing,
     build_flatline,

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Ioannis Valasakis <tungolcild@gmail.com>
-"""Generate Torsade's documentation figures in the ECG house style.
+"""Generate Artefaux's documentation figures in the ECG house style.
 
 House style: IBM Plex type (falls back gracefully), single accent ``#6C5CE7``,
 colourblind-safe, no chartjunk, legible at embed size. Worked examples use
@@ -21,12 +21,12 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 
-from torsade.constants import SNR_LADDER_DB  # noqa: E402
-from torsade.corpus import build_corpus_specs  # noqa: E402
-from torsade.engineering import build_swing  # noqa: E402
-from torsade.mixing import mix_lead  # noqa: E402
-from torsade.noise_shapes import motion_trace  # noqa: E402
-from torsade.synthetic import synthetic_parent_signal  # noqa: E402
+from artefaux.constants import SNR_LADDER_DB  # noqa: E402
+from artefaux.corpus import build_corpus_specs  # noqa: E402
+from artefaux.engineering import build_swing  # noqa: E402
+from artefaux.mixing import mix_lead  # noqa: E402
+from artefaux.noise_shapes import motion_trace  # noqa: E402
+from artefaux.synthetic import synthetic_parent_signal  # noqa: E402
 
 ACCENT = "#6C5CE7"
 INK = "#22223B"
@@ -70,7 +70,7 @@ def fig_composition(out: Path) -> Path:
     ax.set_yticklabels(pretty)
     ax.set_xlim(0, max(values) + 6)
     ax.set_xlabel("number of stress-test records")
-    ax.set_title(f"Torsade v1 composition — {sum(values)} records (+ paired clean parents)")
+    ax.set_title(f"Artefaux v1 composition — {sum(values)} records (+ paired clean parents)")
     ax.invert_yaxis()
     ax.tick_params(length=0)
     fig.tight_layout()

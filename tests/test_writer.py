@@ -7,9 +7,9 @@ from __future__ import annotations
 import numpy as np
 import wfdb
 
-from torsade.constants import CANONICAL_LEAD_ORDER, LEAD_INDEX
-from torsade.engineering import build_digital_missing
-from torsade.writer import ADC_GAIN_PER_MV, write_wfdb
+from artefaux.constants import CANONICAL_LEAD_ORDER, LEAD_INDEX
+from artefaux.engineering import build_digital_missing
+from artefaux.writer import ADC_GAIN_PER_MV, write_wfdb
 
 
 def test_wfdb_physical_roundtrip(ecg12, tmp_path):

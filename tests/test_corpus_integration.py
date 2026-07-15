@@ -12,12 +12,12 @@ import numpy as np
 import wfdb
 import yaml
 
+from artefaux.corpus import build_corpus_specs, specs_to_yaml
+from artefaux.labels import RecordLabel
+from artefaux.manifest import Manifest, ManifestEntry
+from artefaux.recipes import build_record
+from artefaux.writer import write_wfdb
 from tests.conftest import make_einthoven_ecg
-from torsade.corpus import build_corpus_specs, specs_to_yaml
-from torsade.labels import RecordLabel
-from torsade.manifest import Manifest, ManifestEntry
-from torsade.recipes import build_record
-from torsade.writer import write_wfdb
 
 MASTER_SEED = 20260713
 

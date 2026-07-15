@@ -4,7 +4,7 @@
 
 A loose chest electrode disturbs mainly its own lead, but adjacent electrodes on
 the same acquisition often share a common motion component. Copying an identical
-noise trace into two leads looks artificial; Torsade instead builds each lead's
+noise trace into two leads looks artificial; Artefaux instead builds each lead's
 noise as a weighted mix of a shared component and an independent one, e.g.
 
     n_V4 = 0.8·n_shared + 0.2·n_1,   n_V5 = 0.7·n_shared + 0.3·n_2

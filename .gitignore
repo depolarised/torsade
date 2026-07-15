@@ -6,7 +6,7 @@ __pycache__/
 .ruff_cache/
 .venv/
 
-# Torsade generated output and downloaded sources (never committed)
+# Artefaux generated output and downloaded sources (never committed)
 /out/
 /data/
 

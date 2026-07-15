@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Ioannis Valasakis <tungolcild@gmail.com>
-"""Regenerate the shipped corpus definition artifacts from ``torsade.corpus``.
+"""Regenerate the shipped corpus definition artifacts from ``artefaux.corpus``.
 
 Writes ``recipes/corpus.yaml`` (the authoritative record specs) and the
 authored ``manifest.json`` / ``manifest.csv`` (index of the corpus — every field
@@ -14,10 +14,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from torsade.corpus import build_corpus_specs, specs_to_yaml
-from torsade.manifest import Manifest, ManifestEntry
-from torsade.recipes import build_record
-from torsade.synthetic import synthetic_parent_signal
+from artefaux.corpus import build_corpus_specs, specs_to_yaml
+from artefaux.manifest import Manifest, ManifestEntry
+from artefaux.recipes import build_record
+from artefaux.synthetic import synthetic_parent_signal
 
 MASTER_SEED = 20260713
 

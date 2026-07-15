@@ -4,7 +4,7 @@
 
 from __future__ import annotations
 
-from torsade.selection import is_clean, quality_flags, select_ptbxl
+from artefaux.selection import is_clean, quality_flags, select_ptbxl
 
 
 def _row(ecg_id, patient_id, **flags):

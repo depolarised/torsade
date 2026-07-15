@@ -6,8 +6,8 @@ from __future__ import annotations
 
 import numpy as np
 
-from torsade.constants import CHEST_LEADS, LEAD_INDEX, LIMB_LEADS
-from torsade.electrode_domain import (
+from artefaux.constants import CHEST_LEADS, LEAD_INDEX, LIMB_LEADS
+from artefaux.electrode_domain import (
     corrupt_electrode_domain,
     electrodes_to_leads,
     leads_to_electrodes,

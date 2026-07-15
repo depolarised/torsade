@@ -36,7 +36,7 @@ adversarial artefact, and it is labelled as a motion source, not as clean noise.
 
 ## 2. Electrode-domain corruption (`electrode_domain`)
 
-A loose electrode corrupts a *set* of leads. Torsade models this exactly:
+A loose electrode corrupts a *set* of leads. Artefaux models this exactly:
 
 1. Recover limb-electrode potentials in the RA-as-reference gauge:
    `RA ≡ 0`, `LA = lead I`, `LL = lead II`.
@@ -57,7 +57,7 @@ which the label records.
 
 > **Assumption.** The classical `WCT = (RA+LA+LL)/3` is an approximation; the true
 > central-terminal potential varies through the cardiac cycle and with electrode
-> placement. Torsade uses the classical definition. Read this as an idealised
+> placement. Artefaux uses the classical definition. Read this as an idealised
 > electrode model, **not** a torso forward model.
 
 ## 3. Precordial coupling (`precordial`)

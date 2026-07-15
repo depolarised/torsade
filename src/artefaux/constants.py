@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Ioannis Valasakis <tungolcild@gmail.com>
-"""Canonical constants shared across the Torsade generation engine.
+"""Canonical constants shared across the Artefaux generation engine.
 
-Every signal that flows through Torsade is a ``(12, T)`` ``float64`` array in
+Every signal that flows through Artefaux is a ``(12, T)`` ``float64`` array in
 millivolts, sampled at :data:`TARGET_FS`, with leads in :data:`CANONICAL_LEAD_ORDER`.
 These invariants are enforced at load time so that every downstream module can
 assume them without re-checking.
@@ -62,7 +62,7 @@ LEAD_NAME_ALIASES: dict[str, str] = {
 
 # --- Sampling & units ------------------------------------------------------
 
-#: All Torsade records are resampled to this rate (PhysioNet hi-res standard).
+#: All Artefaux records are resampled to this rate (PhysioNet hi-res standard).
 TARGET_FS: int = 500
 
 #: MIT-BIH Noise Stress Test Database native sampling rate.
@@ -85,9 +85,9 @@ SNR_LADDER_DB: tuple[int, ...] = (-6, 0, 6, 12, 18)
 
 # --- Reference thresholds for deterministic expected-label assignment ------
 # These mirror the internal ``signalguard`` catastrophic-artefact thresholds so
-# that Torsade's *expected behaviour* labels are consistent with the gate the
+# that Artefaux's *expected behaviour* labels are consistent with the gate the
 # corpus is meant to exercise. They are used only to author ground-truth labels
-# from a known corruption recipe; Torsade does not import signalguard.
+# from a known corruption recipe; Artefaux does not import signalguard.
 
 #: Peak-to-peak over any 1 s window above this (mV) is an implausible excursion.
 IMPLAUSIBLE_EXCURSION_MV: float = 5.5

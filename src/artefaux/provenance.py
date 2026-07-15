@@ -75,7 +75,7 @@ class Provenance:
     """Everything needed to regenerate the corpus bit-exactly."""
 
     master_seed: int
-    torsade_version: str = __version__
+    artefaux_version: str = __version__
     target_fs: int = 500
     sources: list[SourceRef] = field(default_factory=lambda: list(DEFAULT_SOURCES))
     source_file_hashes: dict[str, str] = field(default_factory=dict)

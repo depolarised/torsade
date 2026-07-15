@@ -1,14 +1,14 @@
 # Attribution and Licensing
 
-**Torsade** is a deterministic ECG stress-test corpus generator that combines openly available source datasets with deterministic corruption models. This document clarifies the licensing terms, attribution requirements, and user obligations.
+**Artefaux** is a deterministic ECG stress-test corpus generator that combines openly available source datasets with deterministic corruption models. This document clarifies the licensing terms, attribution requirements, and user obligations.
 
 ## Code License
 
-Torsade source code (`src/`, `scripts/`, `recipes/`) is released under the **GNU General Public License v3.0 or later** (GPL-3.0-or-later).
+Artefaux source code (`src/`, `scripts/`, `recipes/`) is released under the **GNU General Public License v3.0 or later** (GPL-3.0-or-later).
 
 You are free to:
 - Use, modify, and distribute the code under the terms of the GPL-3.0-or-later.
-- Link to or depend on Torsade in GPL-compatible projects.
+- Link to or depend on Artefaux in GPL-compatible projects.
 
 You are required to:
 - Disclose source code if you distribute binaries.
@@ -26,14 +26,14 @@ You are free to:
 - Use for any purpose (research, education, commercial).
 
 You are required to:
-- Provide attribution to Ioannis Valasakis and the Torsade project.
+- Provide attribution to Ioannis Valasakis and the Artefaux project.
 - Link to the license: https://creativecommons.org/licenses/by/4.0/
 
 ## Source Data Licenses and Attribution
 
-Torsade does **NOT** redistribute derived signals from source datasets. Users must obtain source data independently from PhysioNet and regenerate the corpus via `make download && make regenerate`.
+Artefaux does **NOT** redistribute derived signals from source datasets. Users must obtain source data independently from PhysioNet and regenerate the corpus via `make download && make regenerate`.
 
-Each source dataset carries its own license. When using Torsade, you must comply with and cite each source dataset:
+Each source dataset carries its own license. When using Artefaux, you must comply with and cite each source dataset:
 
 ### 1. PTB-XL v1.0.3
 
@@ -49,12 +49,12 @@ https://doi.org/10.1038/s41597-020-0495-6
 
 **Access:** https://doi.org/10.13026/g4xw-ba04
 
-**How Torsade uses PTB-XL:**
+**How Artefaux uses PTB-XL:**
 - Source of clean 12-lead ECG parents for the real-noise pairs and engineering cases.
 - Source of the naturally-poor records, selected via its technical-validation quality-flag columns
   (`static_noise`/`burst_noise`/`baseline_drift`/`electrodes_problems`).
 
-**Your obligation:** If you use PTB-XL via Torsade, you must cite the Wagner et al. (2020) paper and provide the PhysioNet DOI.
+**Your obligation:** If you use PTB-XL via Artefaux, you must cite the Wagner et al. (2020) paper and provide the PhysioNet DOI.
 
 ---
 
@@ -72,8 +72,8 @@ Scientific Data, 10, 279. https://doi.org/10.1038/s41597-023-02153-8
 
 **Access:** https://physionet.org/content/ptb-xl-plus/1.0.1/
 
-**How Torsade uses PTB-XL+:**
-- **Cited and version-pinned only — not consumed by Torsade v1.** It is the provenance of the Uni-G/Glasgow
+**How Artefaux uses PTB-XL+:**
+- **Cited and version-pinned only — not consumed by Artefaux v1.** It is the provenance of the Uni-G/Glasgow
   interpretation layer, for which the `glasgow_statements` label field is reserved. That field ships **empty**;
   wiring it is deferred to a future version. (The PTB-XL quality flags come from PTB-XL itself, not PTB-XL+.)
 
@@ -96,12 +96,12 @@ Boston, MA, USA (pp. 381–384).
 
 **Access:** https://doi.org/10.13026/c2dv-6e40
 
-**How Torsade uses NSTDB:**
+**How Artefaux uses NSTDB:**
 - Primary source of real noise segments (electrode motion, muscle artefact, baseline wander).
 - Resampled from native 360 Hz to 500 Hz using scipy.signal.resample_poly.
 - Mixed with PTB-XL clean parents at SNR levels {−6, 0, 6, 12, 18} dB to create 30 real-noise stress-test pairs.
 
-**Your obligation:** If you use NSTDB noise via Torsade, cite the Moody et al. (1984) paper and the PhysioNet DOI.
+**Your obligation:** If you use NSTDB noise via Artefaux, cite the Moody et al. (1984) paper and the PhysioNet DOI.
 
 ---
 
@@ -119,11 +119,11 @@ https://doi.org/10.13026/C2JP4G
 
 **Access:** https://doi.org/10.13026/C2JP4G
 
-**How Torsade uses MACECGDB:**
+**How Artefaux uses MACECGDB:**
 - Source of real motion traces (standing / walking / single-jump) for a few "wild" engineering extremes via the `motion_swing` recipe op.
 - Unlike NSTDB, the underlying cardiac signal is **not** suppressed, so these motion traces carry residual ECG — a harder, more ECG-like adversarial artefact — and are labelled as a motion source, not clean noise.
 
-**Your obligation:** If you use MACECGDB data via Torsade, comply with the ODC-BY-1.0 license and cite the Behravan et al. (2015) database.
+**Your obligation:** If you use MACECGDB data via Artefaux, comply with the ODC-BY-1.0 license and cite the Behravan et al. (2015) database.
 
 ---
 
@@ -140,7 +140,7 @@ https://doi.org/10.1161/01.CIR.101.23.e215
 
 **Access:** https://physionet.org/
 
-**How Torsade uses PhysioNet:**
+**How Artefaux uses PhysioNet:**
 - Distribution platform for the source datasets (PTB-XL, PTB-XL+, NSTDB, MACECGDB).
 - Provides data integrity (checksums, version control) and persistent DOI assignments.
 
@@ -150,35 +150,35 @@ https://doi.org/10.1161/01.CIR.101.23.e215
 
 ## Excluded Datasets
 
-**MIMIC-IV (MIMIC-IV-ECG)** is explicitly **NOT** used in Torsade v1, despite being a high-quality ECG resource, because:
+**MIMIC-IV (MIMIC-IV-ECG)** is explicitly **NOT** used in Artefaux v1, despite being a high-quality ECG resource, because:
 
 1. **Credentialed access required:** MIMIC-IV requires PhysioNet account registration and agreement to a research data use agreement (RDUA). Not all users have access.
 2. **Non-redistributable:** MIMIC-IV records cannot be redistributed, even under anonymous or de-identified form.
 3. **Reproducibility constraint:** Including MIMIC-IV would prevent users without credentials from regenerating the full corpus.
 
-If you wish to supplement Torsade with MIMIC-IV-ECG data for your own research, follow the MIMIC-IV RDUA terms directly and cite it separately.
+If you wish to supplement Artefaux with MIMIC-IV-ECG data for your own research, follow the MIMIC-IV RDUA terms directly and cite it separately.
 
 ---
 
-## How to Cite Torsade
+## How to Cite Artefaux
 
 ### Citing the Corpus and Generation Engine
 
 **In-text citation (Author-Year style):**
 ```
-Valasakis (2026) introduced Torsade, a deterministically reproducible stress-test 
+Valasakis (2026) introduced Artefaux, a deterministically reproducible stress-test 
 corpus for ECG signal-quality validation.
 ```
 
 **Bibliography entry (BibTeX):**
 ```bibtex
-@software{valasakis2026torsade,
+@software{valasakis2026artefaux,
   author       = {Ioannis Valasakis},
-  title        = {Torsade: Deterministic {ECG} Noise and Lead-Failure Stress-Test Corpus},
+  title        = {Artefaux: Deterministic {ECG} Noise and Lead-Failure Stress-Test Corpus},
   year         = {2026},
   version      = {1.0.0},
   date         = {2026-07-13},
-  url          = {https://github.com/depolarised/torsade},
+  url          = {https://github.com/depolarised/artefaux},
   license      = {GPL-3.0-or-later},
 }
 ```
@@ -187,7 +187,7 @@ For full CFF (Citation File Format) entry, see `CITATION.cff`.
 
 ### Citing Source Datasets
 
-When using Torsade, **always cite the source datasets** in addition to Torsade itself:
+When using Artefaux, **always cite the source datasets** in addition to Artefaux itself:
 
 ```bibtex
 @article{wagner2020ptbxl,
@@ -221,21 +221,21 @@ When using Torsade, **always cite the source datasets** in addition to Torsade i
 
 ## Copyright and Authorship
 
-**Torsade v1.0.0** is authored by **Ioannis Valasakis** (wizofe, tungolcild@gmail.com).
+**Artefaux v1.0.0** is authored by **Ioannis Valasakis** (wizofe, tungolcild@gmail.com).
 
 **Copyright notice:**
 ```
-© 2026 Ioannis Valasakis. Torsade source code is licensed under GPL-3.0-or-later.
-Torsade corpus definition, manifest, labels, and documentation are licensed under CC-BY-4.0.
+© 2026 Ioannis Valasakis. Artefaux source code is licensed under GPL-3.0-or-later.
+Artefaux corpus definition, manifest, labels, and documentation are licensed under CC-BY-4.0.
 ```
 
 ---
 
 ## Summary: User Obligations
 
-If you use Torsade, you must:
+If you use Artefaux, you must:
 
-1. **Cite Torsade** (the corpus and generation engine).
+1. **Cite Artefaux** (the corpus and generation engine).
 2. **Cite each source dataset** used in your experiments (PTB-XL, PTB-XL+, NSTDB, MACECGDB).
 3. **Comply with PhysioNet terms** (responsible, ethical use; retain source attributions). The source datasets used here are openly licensed (CC-BY-4.0 / ODC-BY-1.0) and permit reuse — including commercial — provided attribution is retained.
 4. **Comply with each source license:**

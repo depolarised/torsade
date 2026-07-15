@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Ioannis Valasakis <tungolcild@gmail.com>
-"""Torsade — deterministic ECG noise & lead-failure stress-test generation.
+"""Artefaux — deterministic ECG noise & lead-failure stress-test generation.
 
-Public API is assembled as modules land. See :mod:`torsade.constants` for the
+Public API is assembled as modules land. See :mod:`artefaux.constants` for the
 signal invariants every function assumes.
 """
 

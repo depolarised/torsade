@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Ioannis Valasakis <tungolcild@gmail.com>
-"""Command-line entry points for Torsade."""
+"""Command-line entry points for Artefaux."""
 
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ DEFAULT_MASTER_SEED = 20260713
 
 def generate_main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(
-        prog="torsade-generate", description="Generate the Torsade noise & lead-failure corpus."
+        prog="artefaux-generate", description="Generate the Artefaux noise & lead-failure corpus."
     )
     p.add_argument("--out", required=True, help="Output directory for records/labels/manifest.")
     p.add_argument("--ptbxl-dir", default=str(DEFAULT_PTBXL_DIR), help="PTB-XL 1.0.3 root.")
@@ -55,7 +55,7 @@ def generate_main(argv: list[str] | None = None) -> int:
 
 def download_main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(
-        prog="torsade-download",
+        prog="artefaux-download",
         description="Download NSTDB (the only source not in the local PhysioNet mirror).",
     )
     p.add_argument("--out", required=True, help="Directory to download NSTDB into.")

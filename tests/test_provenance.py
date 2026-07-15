@@ -8,7 +8,7 @@ import json
 
 import numpy as np
 
-from torsade.provenance import (
+from artefaux.provenance import (
     Provenance,
     record_rng,
     seed_for_record,

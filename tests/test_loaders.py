@@ -6,8 +6,8 @@ from __future__ import annotations
 
 import numpy as np
 
-from torsade.constants import TARGET_FS
-from torsade.loaders import load_nstdb_noise, load_wfdb_parent, resample_signal
+from artefaux.constants import TARGET_FS
+from artefaux.loaders import load_nstdb_noise, load_wfdb_parent, resample_signal
 
 
 def test_resample_identity_when_rates_match():

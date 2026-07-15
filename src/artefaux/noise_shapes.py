@@ -3,14 +3,14 @@
 """Synthetic noise shapes for engineering controls and precordial coupling.
 
 Real recorded NSTDB noise is the primary artefact source for the corpus (see
-:mod:`torsade.mixing`). These synthetic shapes are used only where a *controlled*,
+:mod:`artefaux.mixing`). These synthetic shapes are used only where a *controlled*,
 source-free artefact is wanted — precordial cross-talk components and some extreme
 engineering swings — and where CI must run without any PhysioNet download. They are
 band-limited to physiologically plausible ranges and are clearly labelled synthetic
 in the corruption truth.
 
 Mirrors the shapes in the sibling ``noise-swarms`` package; kept self-contained so
-Torsade has no cross-package runtime dependency.
+Artefaux has no cross-package runtime dependency.
 """
 
 from __future__ import annotations

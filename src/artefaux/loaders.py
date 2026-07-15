@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Ioannis Valasakis <tungolcild@gmail.com>
-"""Load source ECGs and noise into Torsade's canonical representation.
+"""Load source ECGs and noise into Artefaux's canonical representation.
 
 Every parent record becomes a ``(12, T)`` ``float64`` mV array in
-:data:`~torsade.constants.CANONICAL_LEAD_ORDER` at :data:`~torsade.constants.TARGET_FS`.
+:data:`~artefaux.constants.CANONICAL_LEAD_ORDER` at :data:`~artefaux.constants.TARGET_FS`.
 NSTDB noise becomes a single-lead segment resampled to the same rate. All readers
 go through :func:`wfdb.rdrecord`, so this module is the only place that touches the
 on-disk source format.

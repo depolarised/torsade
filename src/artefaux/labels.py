@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Ioannis Valasakis <tungolcild@gmail.com>
 """The three-layer label schema.
 
-Every Torsade record carries three layers of ground truth:
+Every Artefaux record carries three layers of ground truth:
 
 1. **Clinical parent** — what the underlying ECG *is* (authored rhythm class; the
    ``glasgow_statements`` Uni-G field is reserved and empty in v1), from the parent.
@@ -11,7 +11,7 @@ Every Torsade record carries three layers of ground truth:
 3. **Expected behaviour** — how a well-behaved quality gate *should* respond,
    expressed in the internal ``signalguard`` (per-lead / record) and ``noiseguard``
    (discard) vocabularies. These are authored deterministically from the recipe;
-   Torsade does not run the detectors to produce them.
+   Artefaux does not run the detectors to produce them.
 """
 
 from __future__ import annotations

@@ -13,8 +13,8 @@ import numpy as np
 import pytest
 import wfdb
 
-from torsade.constants import CANONICAL_LEAD_ORDER
-from torsade.electrode_domain import derive_limb_leads_from_I_II
+from artefaux.constants import CANONICAL_LEAD_ORDER
+from artefaux.electrode_domain import derive_limb_leads_from_I_II
 
 
 def make_einthoven_ecg(fs: int = 500, seconds: float = 10.0, seed: int = 0) -> np.ndarray:

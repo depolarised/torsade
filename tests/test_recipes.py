@@ -4,9 +4,9 @@
 
 from __future__ import annotations
 
+from artefaux.corpus import build_corpus_specs
+from artefaux.recipes import build_record
 from tests.conftest import make_einthoven_ecg
-from torsade.corpus import build_corpus_specs
-from torsade.recipes import build_record
 
 MASTER_SEED = 20260713
 

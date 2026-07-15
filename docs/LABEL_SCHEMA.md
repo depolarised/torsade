@@ -1,6 +1,6 @@
 # Label schema
 
-Every Torsade record ships a JSON label with three layers. The **corruption truth**
+Every Artefaux record ships a JSON label with three layers. The **corruption truth**
 records exactly what was done; the **expected behaviour** records what a correct
 quality gate should do — authored deterministically from the recipe, not by running
 any detector.
@@ -37,7 +37,7 @@ before/after + clip fraction/intervals), and `params`.
 ## Layer 3 — expected behaviour
 
 How a well-behaved gate should respond, in the internal tools' vocabularies. These
-are **authored from the recipe**; Torsade never runs the detectors to produce them.
+are **authored from the recipe**; Artefaux never runs the detectors to produce them.
 
 | Field | Vocabulary |
 |---|---|
@@ -58,7 +58,7 @@ discard model; `signalguard` is a graded gate. A record can be `limited` for
 
 ```json
 {
-  "record_id": "torsade_eng_005_overload_v3",
+  "record_id": "artefaux_eng_005_overload_v3",
   "group": "engineering",
   "fs": 500,
   "n_samples": 5000,

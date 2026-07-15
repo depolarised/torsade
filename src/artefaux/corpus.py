@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Ioannis Valasakis <tungolcild@gmail.com>
-"""The Torsade v1 corpus definition, as data.
+"""The Artefaux v1 corpus definition, as data.
 
 ``build_corpus_specs()`` returns all ~67 record specs: 15 naturally-poor,
 30 real-noise pairs across the SNR ladder, and 22 engineering extremes split into
@@ -27,7 +27,7 @@ _NOISE_TYPES = ("em", "ma", "bw")
 
 
 def _rid(prefix: str, i: int) -> str:
-    return f"torsade_{prefix}_{i:03d}"
+    return f"artefaux_{prefix}_{i:03d}"
 
 
 # --- 15 naturally poor ------------------------------------------------------
@@ -386,7 +386,7 @@ def _engineering() -> list[RecordSpec]:
         idx += 1
         specs.append(
             RecordSpec(
-                record_id=f"torsade_eng_{idx:03d}_{suffix}",
+                record_id=f"artefaux_eng_{idx:03d}_{suffix}",
                 group="engineering",
                 source=SourceSpec(dataset="ptbxl", rhythm_class="sinus"),
                 seed_index=300 + idx,
@@ -399,7 +399,7 @@ def _engineering() -> list[RecordSpec]:
 
 
 def build_corpus_specs() -> list[RecordSpec]:
-    """Return the full Torsade v1 corpus definition (~67 records)."""
+    """Return the full Artefaux v1 corpus definition (~67 records)."""
     return _naturally_poor() + _real_noise() + _engineering()
 
 

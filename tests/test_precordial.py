@@ -7,8 +7,8 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from torsade.constants import LEAD_INDEX, LIMB_LEADS
-from torsade.precordial import corrupt_precordial, coupled_noise_traces
+from artefaux.constants import LEAD_INDEX, LIMB_LEADS
+from artefaux.precordial import corrupt_precordial, coupled_noise_traces
 
 
 def test_shared_weight_increases_correlation():

@@ -1,16 +1,16 @@
-# Datasheet for Torsade: ECG Noise and Lead-Failure Stress-Test Corpus
+# Datasheet for Artefaux: ECG Noise and Lead-Failure Stress-Test Corpus
 
 **Version:** 1.0.0  
 **Release date:** 2026-07-13  
 **Maintainer:** Ioannis Valasakis (wizofe)  
-**Repository:** https://github.com/depolarised/torsade  
+**Repository:** https://github.com/depolarised/artefaux  
 **License:** Code (GPL-3.0-or-later); manifest, labels, documentation (CC-BY-4.0)
 
 ## 1. Motivation
 
 ### Why does the corpus exist?
 
-Torsade addresses a gap in ECG signal-quality evaluation: there is no widely available, richly labelled, deterministically reproducible corpus specifically designed to stress-test noise detectors and lead-failure handlers. Existing datasets emphasize clinical diversity (arrhythmia prevalence, demographics) rather than systematic coverage of artefact and corruption modes.
+Artefaux addresses a gap in ECG signal-quality evaluation: there is no widely available, richly labelled, deterministically reproducible corpus specifically designed to stress-test noise detectors and lead-failure handlers. Existing datasets emphasize clinical diversity (arrhythmia prevalence, demographics) rather than systematic coverage of artefact and corruption modes.
 
 This corpus is designed for:
 
@@ -21,7 +21,7 @@ This corpus is designed for:
 
 ### Primary use case
 
-Torsade is a **stress-test corpus**, not a clinically representative epidemiological dataset. It is intended for robustness validation of algorithms and systems, **not** for training, external validation against clinical prevalence, or population health inference.
+Artefaux is a **stress-test corpus**, not a clinically representative epidemiological dataset. It is intended for robustness validation of algorithms and systems, **not** for training, external validation against clinical prevalence, or population health inference.
 
 ### Intended audience
 
@@ -33,7 +33,7 @@ Torsade is a **stress-test corpus**, not a clinically representative epidemiolog
 
 ### Dataset structure
 
-Torsade v1 contains **~67 test records** (derived from publicly available sources) plus **~50–55 paired clean parent records** (from open-access PhysioNet datasets). The corpus is organized by corruption mode, not by clinical condition.
+Artefaux v1 contains **~67 test records** (derived from publicly available sources) plus **~50–55 paired clean parent records** (from open-access PhysioNet datasets). The corpus is organized by corruption mode, not by clinical condition.
 
 | Category | Count | Source | Corruption Type | Clean Parent |
 |----------|-------|--------|-----------------|--------------|
@@ -64,24 +64,24 @@ Torsade v1 contains **~67 test records** (derived from publicly available source
    - Publicly available; CC-BY-4.0 license.
    - 21,837 12-lead ECG recordings at 500 Hz, ages 16–89 years, mixed rhythms and pathologies.
    - Retrieved from PhysioNet: https://doi.org/10.13026/g4xw-ba04
-   - Torsade uses PTB-XL as clean parents (real-noise + engineering) **and** for the naturally-poor selection via its technical-validation quality-flag columns (`static_noise`/`burst_noise`/`baseline_drift`/`electrodes_problems`).
+   - Artefaux uses PTB-XL as clean parents (real-noise + engineering) **and** for the naturally-poor selection via its technical-validation quality-flag columns (`static_noise`/`burst_noise`/`baseline_drift`/`electrodes_problems`).
 
 2. **PTB-XL+ v1.0.1** (Strodthoff et al., *Scientific Data* 2023)
    - CC-BY-4.0 license; the augmented Uni-G/Glasgow feature and interpretation layer for PTB-XL.
-   - **Cited and version-pinned, but not consumed by Torsade v1.** The `glasgow_statements` label field is reserved for this layer and ships **empty**; wiring the Uni-G statements is deferred to a future version.
+   - **Cited and version-pinned, but not consumed by Artefaux v1.** The `glasgow_statements` label field is reserved for this layer and ships **empty**; wiring the Uni-G statements is deferred to a future version.
    - Retrieved from Zenodo: https://doi.org/10.5281/zenodo.4916206
 
 3. **MIT-BIH Noise Stress Test Database (NSTDB) v1.0.0** (Moody, Muldrow, Mark 1984)
    - Open Data Commons Attribution License v1.0 (ODC-BY-1.0); attribution required.
    - Three real-noise records — electrode motion (em), muscle artefact (ma), and baseline wander (bw) — at 360 Hz, recorded from active subjects with electrodes positioned to suppress the underlying ECG.
    - Retrieved from PhysioNet: https://doi.org/10.13026/c2dv-6e40
-   - Torsade uses these as primary noise sources for SNR ladder and real-noise pairs; resamples to 500 Hz.
+   - Artefaux uses these as primary noise sources for SNR ladder and real-noise pairs; resamples to 500 Hz.
 
 4. **Motion Artifact Contaminated ECG Database (MACECGDB) v1.0.0** (Behravan, Glover, Farry, Shoaib, Chiang 2015)
    - Open Data Commons Attribution License v1.0 (ODC-BY-1.0); attribution required.
    - Four-channel ECG recorded from one healthy 25-year-old subject during standing, walking, and a single jump, 500 Hz, 16-bit, analog gain 100×. Unlike NSTDB, the underlying cardiac signal is **not** suppressed — these are real ambulatory ECGs contaminated by motion.
    - Retrieved from PhysioNet: https://doi.org/10.13026/C2JP4G
-   - Torsade uses these motion traces for a few "wild" engineering extremes (`motion_swing`), where a harder, ECG-like adversarial artefact is wanted rather than near-pure noise.
+   - Artefaux uses these motion traces for a few "wild" engineering extremes (`motion_swing`), where a harder, ECG-like adversarial artefact is wanted rather than near-pure noise.
 
 5. **PhysioNet** (Goldberger et al., *Circulation* 2000)
    - Repository and associated infrastructure.
@@ -118,7 +118,7 @@ Torsade v1 contains **~67 test records** (derived from publicly available source
 ### Provenance tracking
 
 - **Source file hashing:** SHA-256 of every downloaded source file; manifest records digest and version.
-- **Record-index mapping:** each Torsade record linked to source dataset and source record ID.
+- **Record-index mapping:** each Artefaux record linked to source dataset and source record ID.
 - **Versioning:** source dataset versions (PTB-XL v1.0.3, NSTDB v1.0.0, etc.) pinned in manifest.
 
 ## 4. Preprocessing, Cleaning, and Labeling
@@ -176,19 +176,19 @@ See `docs/LABEL_SCHEMA.md` for the complete schema and JSON examples.
 ### Cautioned uses (possible but not primary)
 
 - **Clinical prevalence estimation:** The corpus is **stress-test biased**, not epidemiologically balanced. Do not use to estimate prevalence of any noise type or lead-failure mode in real populations.
-- **Training noise-robust models:** Real NSTDB noise is used, but SNR ranges and contamination patterns are artificial. Models trained on Torsade may not generalize to naturalistic field recordings. Consider supplementing with in-the-wild datasets.
+- **Training noise-robust models:** Real NSTDB noise is used, but SNR ranges and contamination patterns are artificial. Models trained on Artefaux may not generalize to naturalistic field recordings. Consider supplementing with in-the-wild datasets.
 - **Tuning clinical thresholds without external validation:** Expected-behaviour labels are authored from recipes, not adjudicated by clinicians. Always validate tuned thresholds against independent clinical datasets before deployment.
 
 ### Prohibited uses
 
-- Diagnostic inference: Never apply ECG interpretation algorithms trained on or validated against Torsade to real patient data without independent clinical validation on datasets representative of the intended use population.
+- Diagnostic inference: Never apply ECG interpretation algorithms trained on or validated against Artefaux to real patient data without independent clinical validation on datasets representative of the intended use population.
 - Redistribution of derived signals: The corpus does NOT redistribute NSTDB, PTB-XL, PTB-XL+, or MACECGDB records; users must obtain these independently and regenerate via the provided recipes.
 
 ## 6. Distribution
 
 ### Availability
 
-- **Code:** https://github.com/depolarised/torsade (GPL-3.0-or-later).
+- **Code:** https://github.com/depolarised/artefaux (GPL-3.0-or-later).
 - **Corpus definition (recipes, manifest, labels):** Distributed with the repository (CC-BY-4.0).
 - **Derived signals:** Users must fetch source datasets from PhysioNet and regenerate via `make download && make regenerate`.
 
@@ -200,11 +200,11 @@ See `docs/LABEL_SCHEMA.md` for the complete schema and JSON examples.
 
 ### Access and reproducibility
 
-Torsade requires **no credentialed access.** All source datasets are openly available (with the exception of MIMIC, which is explicitly excluded). A user with internet access and sufficient disk space can:
+Artefaux requires **no credentialed access.** All source datasets are openly available (with the exception of MIMIC, which is explicitly excluded). A user with internet access and sufficient disk space can:
 
 ```bash
-git clone https://github.com/depolarised/torsade.git
-cd torsade
+git clone https://github.com/depolarised/artefaux.git
+cd artefaux
 make download     # Fetches NSTDB (PTB-XL/PTB-XL+/MACECGDB read from local mirror)
 make select       # Resolves PTB-XL parent ids from the local copy
 make regenerate   # Builds corpus deterministically
@@ -214,7 +214,7 @@ make regenerate   # Builds corpus deterministically
 
 ### Version control
 
-Torsade uses semantic versioning (MAJOR.MINOR.PATCH).
+Artefaux uses semantic versioning (MAJOR.MINOR.PATCH).
 
 - **v1.0.0 (2026-07-13):** Initial release. Deterministic generation engine, full corpus definition (recipes + manifest + labels), all three corruption categories.
 
@@ -226,7 +226,7 @@ Each major version pins source dataset versions in the manifest:
 - NSTDB v1.0.0
 - MACECGDB v1.0.0
 
-If source datasets are updated, a new Torsade version is required to maintain reproducibility.
+If source datasets are updated, a new Artefaux version is required to maintain reproducibility.
 
 ### Maintenance plan
 
@@ -237,16 +237,16 @@ If source datasets are updated, a new Torsade version is required to maintain re
 
 ### Contact and reporting issues
 
-- **GitHub Issues:** https://github.com/depolarised/torsade/issues
+- **GitHub Issues:** https://github.com/depolarised/artefaux/issues
 - **Maintainer:** Ioannis Valasakis (wizofe), tungolcild@gmail.com
 
 ## 8. Limitations and Caveats
 
 ### By design
 
-1. **Stress-test bias:** The corpus oversamples extreme corruption modes relative to clinical prevalence. Results validating an algorithm on Torsade do **not** imply clinical robustness; always validate on independent epidemiologically balanced datasets.
+1. **Stress-test bias:** The corpus oversamples extreme corruption modes relative to clinical prevalence. Results validating an algorithm on Artefaux do **not** imply clinical robustness; always validate on independent epidemiologically balanced datasets.
 
-2. **Synthetic electrode model:** Multi-lead electrode-domain corruptions use the classical Wilson Central Terminal definition (WCT = (RA + LA + LL)/3). This is an **idealised model**—the true WCT is non-zero and varies throughout the cardiac cycle. Torsade does not model individual chest-wall geometry, electrode contact impedance, or torso forward models. Use engineering extremes as *unit tests*, not as surrogates for real inter-lead dependencies.
+2. **Synthetic electrode model:** Multi-lead electrode-domain corruptions use the classical Wilson Central Terminal definition (WCT = (RA + LA + LL)/3). This is an **idealised model**—the true WCT is non-zero and varies throughout the cardiac cycle. Artefaux does not model individual chest-wall geometry, electrode contact impedance, or torso forward models. Use engineering extremes as *unit tests*, not as surrogates for real inter-lead dependencies.
 
 3. **No torso-forward model:** Lead-off and electrode-disconnection corruptions are modelled as zeroing the electrode potential in the RA-reference frame, then recomputing 12 leads. This does not model mutual capacitance between electrodes or skin-impedance effects.
 
@@ -256,8 +256,8 @@ If source datasets are updated, a new Torsade version is required to maintain re
 
 ### Known limitations in v1
 
-- **No inter-electrode physiological constraints:** Torsade does not model the 12-lead space as a low-dimensional manifold or enforce Dower matrix constraints. Extreme multi-lead corruptions may violate real cardiac electrophysiology.
-- **No non-stationary noise:** All NSTDB segments are treated as stationary. Real electrode motion and muscle artefact evolve over time; Torsade does not model time-varying noise transfer functions.
+- **No inter-electrode physiological constraints:** Artefaux does not model the 12-lead space as a low-dimensional manifold or enforce Dower matrix constraints. Extreme multi-lead corruptions may violate real cardiac electrophysiology.
+- **No non-stationary noise:** All NSTDB segments are treated as stationary. Real electrode motion and muscle artefact evolve over time; Artefaux does not model time-varying noise transfer functions.
 - **Rhythm labels are authored, not measured:** each real-noise pair carries an *intended* `rhythm_class` (cycled across sinus/AF/PAC-PVC/BBB/ST-T/flutter-SVT), but the PTB-XL parent is bound by a seeded patient-deduplicated sample — its **actual** rhythm is not verified against the label. Treat `rhythm_class` as design intent, not ground truth.
 
 ## 9. Key References
@@ -277,4 +277,4 @@ Gebru, T., Morgenstern, J., Vecchione, B., et al. (2021). "Datasheets for Datase
 
 ---
 
-**Citation:** When using Torsade, please cite both the corpus and its source datasets. See `CITATION.cff` for BibTeX and other formats.
+**Citation:** When using Artefaux, please cite both the corpus and its source datasets. See `CITATION.cff` for BibTeX and other formats.

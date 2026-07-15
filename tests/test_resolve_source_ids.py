@@ -8,8 +8,8 @@ import csv
 
 import pytest
 
-from torsade.build import resolve_source_ids
-from torsade.corpus import build_corpus_specs
+from artefaux.build import resolve_source_ids
+from artefaux.corpus import build_corpus_specs
 
 
 def _write_ids(path, header, rows):

@@ -5,14 +5,14 @@
 
 PTB-XL (500 Hz), PTB-XL+, and MACECGDB are read from the local mirror under
 ``/data/physionet`` (see docs/GENERATION.md), so this fetches only NSTDB.
-Thin wrapper around ``torsade.cli:download_main``.
+Thin wrapper around ``artefaux.cli:download_main``.
 """
 
 from __future__ import annotations
 
 import sys
 
-from torsade.cli import download_main
+from artefaux.cli import download_main
 
 if __name__ == "__main__":
     raise SystemExit(download_main(sys.argv[1:]))

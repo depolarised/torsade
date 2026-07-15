@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Ioannis Valasakis <tungolcild@gmail.com>
 """Write canonical signals to WFDB.
 
-``ecg-io`` is readers-only, so Torsade emits WFDB directly via ``wfdb.wrsamp``.
+``ecg-io`` is readers-only, so Artefaux emits WFDB directly via ``wfdb.wrsamp``.
 We pass an explicit ADC gain and baseline rather than letting wfdb infer them from
 the data, so that a fully-NaN "digital-missing" lead still writes cleanly (gain
 inference fails on an all-NaN channel). NaN samples are stored as the WFDB invalid
@@ -18,7 +18,7 @@ import numpy as np
 from .constants import CANONICAL_LEAD_ORDER, N_LEADS, UNIT
 
 #: Digital units per mV. 1000 gives a ±32.767 mV range in 16-bit — comfortably
-#: beyond any rail Torsade uses — at 1 µV resolution.
+#: beyond any rail Artefaux uses — at 1 µV resolution.
 ADC_GAIN_PER_MV: float = 1000.0
 
 

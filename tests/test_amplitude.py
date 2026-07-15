@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from torsade.amplitude import amplitude_record, detect_clipping, peak_to_peak_mv
+from artefaux.amplitude import amplitude_record, detect_clipping, peak_to_peak_mv
 
 
 def test_peak_to_peak_is_nan_safe():

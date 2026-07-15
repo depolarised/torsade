@@ -1,6 +1,6 @@
 # Architecture
 
-Torsade is a small, pure-Python pipeline. Every signal is a `(12, T)` `float64`
+Artefaux is a small, pure-Python pipeline. Every signal is a `(12, T)` `float64`
 array in **millivolts**, leads in canonical order
 `[I, II, III, aVR, aVL, aVF, V1, V2, V3, V4, V5, V6]`, sampled at **500 Hz**. That
 invariant is established at load time so every downstream module can assume it.
@@ -41,17 +41,17 @@ wrappers over it.
 | `writer` | WFDB output via `wfdb.wrsamp` (incl. NaN handling) |
 | `manifest` | Corpus index (JSON + CSV) |
 | `recipes` | Declarative corruption specs and the interpreter (`apply_recipe`, `build_record`) |
-| `corpus` | The Torsade v1 corpus definition and YAML serialization |
+| `corpus` | The Artefaux v1 corpus definition and YAML serialization |
 | `selection` | Deterministic PTB-XL parent selection from metadata |
 | `synthetic` | Einthoven-consistent synthetic parents (smoke tests, figures) |
 | `build` | End-to-end corpus generation |
 
 ## Design boundaries
 
-- **No dependency on the internal `noiseguard` / `signalguard` packages.** Torsade
+- **No dependency on the internal `noiseguard` / `signalguard` packages.** Artefaux
   *targets* their input contract and *authors* expected labels in their
   vocabularies, but never imports them. The corpus is tool-neutral ground truth.
-- **`ecg-io` is readers-only**, so Torsade writes WFDB directly rather than
+- **`ecg-io` is readers-only**, so Artefaux writes WFDB directly rather than
   round-tripping through it.
 - **Real recorded noise (NSTDB) is primary.** The synthetic `noise_shapes` are used
   only for source-free controls and for CI, and are labelled as synthetic.
